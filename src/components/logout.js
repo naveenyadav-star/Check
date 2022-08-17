@@ -10,7 +10,7 @@ const Logout = (props) => {
     localStorage.removeItem("type");
    
   }, []);
-  return <Navigate to="/welcome" />;
+  return <Navigate to="/register" />;
 };
 
 export default Logout;
