@@ -7,7 +7,7 @@ import {store} from '../../App'
 
     
 
-const JobProvider = (props) => {
+const JobProviderAuth = (props) => {
     
     //register validation
     const [signupDetails, setSignupDetails] = useState({
@@ -250,4 +250,4 @@ export const ErrorPage = (props) => {
   );
 };
 
-export default JobProvider;
+export default JobProviderAuth;

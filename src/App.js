@@ -10,6 +10,8 @@ import MyProfile from "./components/MyProfile";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { Grid, makeStyles } from "@material-ui/core";
 import Logout from './components/logout';
+import JobProviderAuth from "./components/recruiter/jobauthentication";
+import JobProviderProfile from "./components/recruiter/jobproviderprofile";
 
 export const store = createContext();
 
@@ -44,6 +46,9 @@ function App() {
           <Route path="welcome" element={<Welcome />} />
           <Route path="myprofile" element={<MyProfile />} />
           <Route path="logout" element={<Logout />} />
+          <Route path="jobauthentication" element={<JobProviderAuth />} />
+          <Route path="jobproviderprofile" element={<JobProviderProfile />} />
+
         </Route>
       </Routes>
     </BrowserRouter>
