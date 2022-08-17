@@ -24,11 +24,12 @@ const JobProviderProfile = (props) => {
     return <Navigate to="/jobauthentication" />;
   }
   return (
-
-    // data &&
-    // <h1>Welcome to {data.name}</h1>
-    <div>
-      <h1>Welcome to {jobUserData.name} </h1>
+    jobUserData &&
+<div>
+    
+     <h1>Welcome to {jobUserData.name}</h1>
+    
+      
     </div>
   );
 };
