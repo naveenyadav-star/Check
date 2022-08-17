@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { createContext, useState } from "react";
-
+import JobProvider from './components/recruiter/jobauthentication';
 
 import Welcome, { ErrorPage } from "./components/Welcome";
 import Navbar from "./components/Navbar";
@@ -10,6 +10,7 @@ import MyProfile from './components/MyProfile';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { Grid, makeStyles } from "@material-ui/core";
 import Logout from './components/logout';
+import JobProviderProfile from './components/recruiter/jobproviderprofile';
 
 export const store = createContext();
 
@@ -44,6 +45,8 @@ function App() {
           <Route path="welcome" element={<Welcome />} />
           <Route path="myprofile" element={<MyProfile />} />
           <Route path="logout" element={<Logout />} />
+          <Route path="jobauthentication" element={<JobProvider />} />
+          <Route path="jobproviderprofile" element={<JobProviderProfile />} />
         </Route>
       </Routes>
     </BrowserRouter>

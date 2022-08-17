@@ -44,7 +44,7 @@ const Navbar = (props) => {
                   userType() === "recruiter" ? (
                     <>
                       <li>
-                        <a href="profile-authentication.html">
+                        <a href="jobproviderdashboard">
                           <i class="flaticon-padlock"></i> Job Provider
                         </a>
                       </li>
@@ -58,7 +58,7 @@ const Navbar = (props) => {
                   ) : (
                     <>
                       <li>
-                        <a href="profile-authentication.html">
+                        <a href="candidatedashboard">
                           <i class="flaticon-padlock"></i> User
                         </a>
                       </li>
@@ -72,7 +72,7 @@ const Navbar = (props) => {
                 ) : (
                   <>
                     <li>
-                      <a href="profile-authentication.html">
+                      <a href="jobauthentication">
                         <i class="flaticon-padlock"></i> Job Provider
                       </a>
                     </li>

@@ -5,27 +5,20 @@ import axios from "axios";
 import { Navigate  } from "react-router-dom"
 import {store} from '../../App'
 
-
-
-
-
     
 
 const JobProvider = (props) => {
     
     //register validation
     const [signupDetails, setSignupDetails] = useState({
-      type: "applicant",
+      type: "recruiter",
       email: "",
       password: "",
       name: "",
-      education: [],
-      skills: [],
-      resume: "",
-      profile: "",
-      bio: "",
-      mobile_number: "",
-      experienced: false
+      company: "",
+      city: "",
+      state: "",
+      mobile_number: ""
     });
     
 
@@ -38,13 +31,14 @@ const JobProvider = (props) => {
         axios
         .post(apiList.signup, signupDetails)
         .then(
-            res =>alert(res.data)
+            res =>alert("Register added")
         )
+        return <Navigate to='/jobproviderprofile' />
 
     }
     // Login details authentication
     const [loginDetails, setLoginDetails] = useState({
-        type: "applicant",
+        type: "recruiter",
         email: "",
         password: ""
       });
@@ -73,7 +67,7 @@ const JobProvider = (props) => {
             console.log(response);
     })}
     if(localStorage.getItem("token")){
-        return <Navigate to='/myprofile' />
+        return <Navigate to='/jobproviderprofile' />
     }
       
   return (
@@ -174,8 +168,20 @@ const JobProvider = (props) => {
                                             placeholder="Confirm Password" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="number" name='mobile_number' class="form-control" onChange={changeHandler}
-                                            placeholder="Enter Mobile Number" />
+                                        <input type="text" name='mobile_number' class="form-control" onChange={changeHandler}
+                                            placeholder="Mobile Number" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name='company' class="form-control" onChange={changeHandler}
+                                            placeholder="Company Name" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name='state' class="form-control" onChange={changeHandler}
+                                            placeholder="State" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name='city' class="form-control" onChange={changeHandler}
+                                            placeholder="City" />
                                     </div>
     
                                     <div class="remember-me-wrap">
