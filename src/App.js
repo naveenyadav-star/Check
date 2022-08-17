@@ -1,15 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
 import { createContext, useState } from "react";
-
 
 import Welcome, { ErrorPage } from "./components/Welcome";
 import Navbar from "./components/Navbar";
-import Register from "./components/register"
-import MyProfile from './components/MyProfile';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import Register from "./components/register";
+import MyProfile from "./components/MyProfile";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { Grid, makeStyles } from "@material-ui/core";
-import Logout from './components/logout';
 
 export const store = createContext();
 
@@ -28,27 +26,25 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function App() {
-  const [token,setToken] = useState(null);
-	const classes = useStyles();
-	const [popup, setPopup] = useState({
+  const [token, setToken] = useState(null);
+  const classes = useStyles();
+  const [popup, setPopup] = useState({
     open: false,
     severity: "",
     message: "",
   });
   return (
-   <store.Provider value={[token,setToken]} >
-	<BrowserRouter>
-      <Routes> 
-        <Route path="/" element={<Navbar />}>
-          <Route path="register" element={<Register />} />
-          <Route path="welcome" element={<Welcome />} />
-          <Route path="myprofile" element={<MyProfile />} />
-          <Route path="logout" element={<Logout />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-    </store.Provider> 
-             
+    <store.Provider value={[token, setToken]}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Navbar />}>
+            <Route path="register" element={<Register />} />
+            <Route path="welcome" element={<Welcome />} />
+            <Route path="myprofile" element={<MyProfile />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </store.Provider>
   );
 }
 

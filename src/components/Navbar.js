@@ -1,7 +1,15 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { Outlet, Link } from "react-router-dom";
+import { useNavigate } from "react-router";
 import isAuth, { userType } from "../lib/isAuth";
+import { logout } from "../utils/logout.util";
 
 const Navbar = (props) => {
+  let navigate = useNavigate();
+  const logoutUser = () => {
+    logout();
+    navigate("/register");
+  };
   return (
     <div>
       {/* {isAuth() ? (
@@ -50,7 +58,7 @@ const Navbar = (props) => {
                       </li>
 
                       <li>
-                        <a href="logout">
+                        <a onClick={logoutUser}>
                           <i class="flaticon-user"></i> Log Out
                         </a>
                       </li>
@@ -63,7 +71,7 @@ const Navbar = (props) => {
                         </a>
                       </li>
                       <li>
-                        <a href="logout">
+                        <a onClick={logoutUser}>
                           <i class="flaticon-user"></i> Log Out
                         </a>
                       </li>
@@ -117,7 +125,10 @@ const Navbar = (props) => {
               >
                 <ul class="navbar-nav m-auto">
                   <li class="nav-item">
-                    <a href="welcome" class="nav-link active">
+                    <a
+                      onClick={() => navigate("/welcome")}
+                      class="nav-link active"
+                    >
                       Home
                     </a>
                   </li>
