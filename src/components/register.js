@@ -39,7 +39,9 @@ const Register = (props) => {
         .post(apiList.signup, signupDetails)
         .then(
             res =>alert(res.data)
-        )
+        ).catch(err =>{
+            alert(err)
+        })
 
     }
     // Login details authentication
@@ -71,7 +73,10 @@ const Register = (props) => {
               message: "Logged in successfully",
             });
             console.log(response);
-    })}
+    }).catch((err) => {
+        alert(err.message)
+    })
+}
     if(localStorage.getItem("token")){
         return <Navigate to='/myprofile' />
     }

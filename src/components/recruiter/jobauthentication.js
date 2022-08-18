@@ -5,6 +5,7 @@ import axios from "axios";
 import { Navigate  } from "react-router-dom"
 import {store} from '../../App'
 
+
     
 
 const JobProviderAuth = (props) => {
@@ -32,7 +33,10 @@ const JobProviderAuth = (props) => {
         .post(apiList.signup, signupDetails)
         .then(
             res =>alert("Register added")
-        )
+        ).catch((err) => {
+            alert(err.message)
+            
+        })
         return <Navigate to='/jobproviderprofile' />
 
     }
@@ -65,7 +69,10 @@ const JobProviderAuth = (props) => {
               message: "Logged in successfully",
             });
             console.log(response);
-    })}
+    }).catch((err) => {
+        alert(err.message)
+    })
+}
     if(localStorage.getItem("token")){
         return <Navigate to='/jobproviderprofile' />
     }
