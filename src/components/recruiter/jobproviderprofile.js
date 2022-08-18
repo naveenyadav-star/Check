@@ -3,6 +3,9 @@ import { Navigate } from "react-router-dom";
 
 import axios from "axios";
 import apiList from "../../lib/apiList";
+import RecruiterMenu from "./recruiter.menu";
+import RecruiterNav from "./recruiter.nav";
+import RecruiterDashboard from "./recruiter.dashboard";
 
 
 const JobProviderProfile = (props) => {
@@ -24,12 +27,11 @@ const JobProviderProfile = (props) => {
     return <Navigate to="/jobauthentication" />;
   }
   return (
-    jobUserData &&
+    
 <div>
-    
-     <h1>Welcome to {jobUserData.name}</h1>
-    
-      
+      <RecruiterNav jobProviderData={jobUserData} />
+      <RecruiterMenu />
+      <RecruiterDashboard jobProviderData={jobUserData}/>
     </div>
   );
 };

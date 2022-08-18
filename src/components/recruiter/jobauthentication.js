@@ -4,12 +4,12 @@ import { useState, useContext } from "react";
 import axios from "axios";
 import { Navigate  } from "react-router-dom"
 import {store} from '../../App'
-
+import { useNavigate } from "react-router";
 
     
 
 const JobProviderAuth = (props) => {
-    
+    let navigate = useNavigate();
     //register validation
     const [signupDetails, setSignupDetails] = useState({
       type: "recruiter",
@@ -37,7 +37,8 @@ const JobProviderAuth = (props) => {
             alert(err.message)
             
         })
-        return <Navigate to='/jobproviderprofile' />
+        return navigate ('/jobauthentication')
+        
 
     }
     // Login details authentication
@@ -63,18 +64,17 @@ const JobProviderAuth = (props) => {
             localStorage.setItem("token", response.data.token);
             localStorage.setItem("type", response.data.type);
             setLoggedin(isAuth());
-            response.setPopup({
-              open: true,
-              severity: "success",
-              message: "Logged in successfully",
-            });
+            alert(
+              "Logged in successfully",
+            );
             console.log(response);
     }).catch((err) => {
         alert(err.message)
     })
 }
     if(localStorage.getItem("token")){
-        return <Navigate to='/jobproviderprofile' />
+        
+        return navigate ('/jobproviderprofile')
     }
       
   return (
